@@ -18,7 +18,7 @@ export const db = {
     const data = db.getTasks();
     const newTask = {
       ...task,
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       createdAt: new Date().toISOString(),
       completed: false
     };
