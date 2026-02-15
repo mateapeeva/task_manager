@@ -1,19 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { db } from '../utils/db';
 
 export const useTasks = () => {
-  const [tasks, setTasks] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    loadTasks();
-  }, []);
-
-  const loadTasks = () => {
+  const [tasks, setTasks] = useState(() => {
     const data = db.getTasks();
-    setTasks(data.tasks || []);
-    setCategories(data.categories || []);
-  };
+    return data.tasks || [];
+  });
+  const [categories, setCategories] = useState(() => {
+    const data = db.getTasks();
+    return data.categories || [];
+  });
 
   const addTask = (task) => {
     const newTask = db.addTask(task);

@@ -10,8 +10,7 @@ import {
   addMonths, 
   subMonths,
   isSameMonth,
-  isSameDay,
-  parseISO
+  isSameDay
 } from 'date-fns';
 
 export const Calendar = ({ tasks, onDateSelect, selectedDate }) => {
